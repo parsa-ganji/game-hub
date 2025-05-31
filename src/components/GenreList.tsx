@@ -5,9 +5,11 @@ import {
   List,
   ListItem,
   Spinner,
+  Text,
 } from "@chakra-ui/react";
 import useGenres, { Genre } from "../hooks/useGenres";
 import getCroppedImage from "../services/image-url";
+import { wrap } from "framer-motion";
 
 interface Props {
   onSelectedGenre: (genre: Genre) => void;
