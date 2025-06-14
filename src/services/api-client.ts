@@ -1,6 +1,6 @@
-import axios from "axios";
+import axios, { AxiosRequestConfig } from "axios";
 
-export default axios.create({
+const axiosInstance = axios.create({
     baseURL: 'https://api.rawg.io/api',
     params: {
         key: 'ba92f511584b499c8b3bb9f189b4d873'
@@ -11,3 +11,16 @@ export default axios.create({
   count: number;
   results: T[];
 }
+
+
+class APIClient<T>{
+
+    constructor(public endPoint : string){};
+
+    getAll = (config: AxiosRequestConfig) => {
+        return axiosInstance
+        .get<FetchResponse<T>>(this.endPoint,config)
+        .then(res => res.data)
+    }
+}
+export default APIClient;
