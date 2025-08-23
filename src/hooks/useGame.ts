@@ -1,8 +1,7 @@
-import { useParams } from "react-router-dom";
-import APIClient, { FetchResponse } from "../services/api-client";
-import { Game } from "./useGames";
+import APIClient from "../services/api-client";
+import { Game } from "../entities/Game";
 import { useQuery } from "@tanstack/react-query";
-import { a } from "framer-motion/dist/types.d-CtuPurYT";
+
 
 const apiClient = new APIClient<Game>('/games')
 
